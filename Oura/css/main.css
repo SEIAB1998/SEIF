@@ -1,0 +1,62 @@
+/* Modern Main CSS File - Imports all component stylesheets */
+
+/* Import Modern Google Fonts - Inter for clean, modern UI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Base styles */
+@import 'base.css';
+
+/* Components */
+@import 'components.css';
+
+/* Layout */
+@import 'navbar.css';
+
+/* Pages */
+@import 'home.css';
+@import 'products.css';
+@import 'auth.css';
+@import 'dashboard.css';
+@import 'cart.css';
+
+/* Animations */
+@import 'animations.css';
+
+/* Modern CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  -webkit-text-size-adjust: 100%; /* Prevent font size adjustment on orientation change */
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed; /* Optimize for speed over precision */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit; /* Inherit font properties */
+}
+
+/* Remove all animations and transitions for people who prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

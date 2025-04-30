@@ -1,0 +1,222 @@
+/* CSS Variables - Modern color scheme and design values */
+:root {
+  /* Modern Color Palette */
+  --primary: #4361ee;      /* Modern vibrant blue */
+  --primary-dark: #3a56d4; /* Darker shade for hover states */
+  --secondary: #f72585;    /* Vibrant pink */
+  --accent: #7209b7;       /* Rich purple */
+  --tertiary: #4cc9f0;     /* Light blue */
+
+  /* Neutral Colors */
+  --dark: #1a1a2e;         /* Deep blue-black for text */
+  --light: #f8f9fa;        /* Off-white for backgrounds */
+  --gray: #6c757d;         /* Medium gray */
+  --gray-light: #e9ecef;   /* Light gray for borders */
+  --gray-dark: #343a40;    /* Dark gray for secondary text */
+
+  /* Feedback Colors */
+  --success: #06d6a0;      /* Teal green for success */
+  --warning: #ffd166;      /* Amber for warnings */
+  --danger: #ef476f;       /* Bright pink-red for errors */
+
+  /* Design Elements */
+  --border-radius-sm: 6px;  /* Small radius for buttons, inputs */
+  --border-radius: 12px;    /* Medium radius for cards */
+  --border-radius-lg: 24px; /* Large radius for modals, hero sections */
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);  /* Subtle shadow */
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);    /* Standard shadow */
+  --shadow-lg: 0 16px 38px -12px rgba(0, 0, 0, 0.2); /* Pronounced shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.2s ease;  /* Quick transitions */
+  --transition: all 0.3s ease;       /* Standard transitions */
+  --transition-slow: all 0.5s ease;  /* Slower, more noticeable transitions */
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;  /* 4px */
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 2rem;     /* 32px */
+  --spacing-xl: 4rem;     /* 64px */
+}
+
+/* Modern CSS Reset - Removes browser default styles and ensures consistent rendering */
+*,
+*::before,
+*::after {
+  margin: 0;               /* Remove default margins */
+  padding: 0;              /* Remove default padding */
+  box-sizing: border-box;  /* Include padding and border in element's width and height */
+}
+
+html {
+  scroll-behavior: smooth;  /* Enable smooth scrolling for anchor links */
+}
+
+body {
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Modern font stack */
+  line-height: 1.7;        /* Improved line height for readability */
+  color: var(--dark);      /* Default text color */
+  background-color: #f5f7ff; /* Subtle light blue-gray background */
+  min-height: 100vh;       /* Make body at least full viewport height */
+  display: flex;           /* Enable flexbox layout */
+  flex-direction: column;  /* Stack children vertically */
+  font-size: 16px;         /* Base font size */
+  -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+  -moz-osx-font-smoothing: grayscale;  /* Smoother font rendering in Firefox */
+}
+
+/* Typography - Modern heading styles */
+h1, h2, h3, h4 {
+  line-height: 1.3;        /* Improved line height for headings */
+  font-weight: 700;        /* Bold font weight */
+  margin-bottom: var(--spacing-md); /* Consistent bottom margin */
+  letter-spacing: -0.02em; /* Slightly tighter letter spacing for modern look */
+}
+
+/* Modern heading sizes with fluid typography */
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem); /* Responsive sizing between 32px and 48px */
+  font-weight: 800; /* Extra bold for main headings */
+}
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem); /* Responsive sizing */
+  color: var(--dark);
+}
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem); /* Responsive sizing */
+  color: var(--gray-dark);
+}
+h4 {
+  font-size: clamp(1.1rem, 2vw, 1.4rem); /* Responsive sizing */
+  font-weight: 600; /* Semi-bold for smaller headings */
+}
+
+/* Layout - Modern main content container */
+main {
+  flex: 1;                 /* Take up all available vertical space */
+  padding: var(--spacing-lg); /* Add space around content using spacing variable */
+  max-width: 1400px;       /* Limit width on large screens */
+  margin: 0 auto;          /* Center horizontally */
+  width: 100%;             /* Take full width up to max-width */
+  position: relative;      /* For positioning elements inside */
+  z-index: 1;              /* Ensure main content is above background elements */
+}
+
+/* Modern section styling */
+section {
+  margin-bottom: var(--spacing-xl); /* Generous spacing between sections */
+  position: relative;      /* For positioning decorative elements */
+}
+
+/* Container for content with max-width */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Modern footer with gradient background */
+footer {
+  text-align: center;      /* Center footer content */
+  padding: var(--spacing-xl) var(--spacing-lg); /* Generous padding */
+  background: linear-gradient(135deg, var(--dark), #121229); /* Subtle gradient background */
+  color: white;            /* Light text for contrast */
+  margin-top: auto;        /* Push footer to bottom of page */
+  position: relative;      /* For positioning decorative elements */
+  overflow: hidden;        /* Hide any overflow */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+}
+
+/* Modern decorative gradient line at top of footer */
+footer::before {
+  content: '';             /* Required for pseudo-elements */
+  position: absolute;      /* Position relative to footer */
+  top: 0;                  /* Align to top */
+  left: 0;                 /* Span full width */
+  right: 0;                /* Span full width */
+  height: 4px;             /* Thin line */
+  background: linear-gradient(90deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent),
+    var(--tertiary)); /* Modern colorful gradient */
+  opacity: 0.8;            /* Slightly transparent */
+}
+
+/* Footer content styling */
+footer p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Footer links */
+footer a {
+  color: var(--tertiary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+footer a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Modern Responsive Design - Adjustments for different screen sizes */
+/* Tablet and smaller devices */
+@media (max-width: 992px) {
+  main {
+    padding: var(--spacing-md);  /* Reduce padding on medium screens */
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm); /* Adjust container padding */
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;        /* Slightly smaller base font size */
+  }
+
+  main {
+    padding: var(--spacing-sm); /* Further reduce padding */
+  }
+
+  section {
+    margin-bottom: var(--spacing-lg); /* Reduce section spacing */
+  }
+
+  footer {
+    padding: var(--spacing-lg) var(--spacing-md); /* Reduce footer padding */
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;        /* Even smaller base font size for mobile */
+  }
+
+  main {
+    padding: var(--spacing-sm) var(--spacing-xs); /* Minimal padding on mobile */
+  }
+
+  /* Adjust container padding for mobile */
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+  /* Further adjustments for very small screens if needed */
+  main {
+    padding: var(--spacing-xs);
+  }
+}

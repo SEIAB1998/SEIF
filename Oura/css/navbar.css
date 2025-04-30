@@ -1,0 +1,144 @@
+/* Modern Navbar / Header - Main navigation bar with glass morphism effect */
+header {
+  background: rgba(255, 255, 255, 0.05);  /* Semi-transparent background */
+  backdrop-filter: blur(10px);            /* Blur effect for glass morphism */
+  -webkit-backdrop-filter: blur(10px);    /* For Safari support */
+  color: white;                           /* White text for contrast */
+  padding: 1rem 2rem;                     /* Comfortable spacing inside header */
+  display: flex;                          /* Use flexbox for layout */
+  justify-content: space-between;         /* Logo on left, nav on right */
+  align-items: center;                    /* Vertically center items */
+  position: sticky;                       /* Stick to top when scrolling */
+  top: 0;                                 /* Stick to top of viewport */
+  z-index: 1000;                          /* Ensure header appears above other content */
+  box-shadow: var(--shadow-sm);           /* Subtle shadow for depth */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  transition: var(--transition);          /* Smooth transitions */
+}
+
+/* Modern gradient background for header */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary), var(--accent)); /* Modern gradient */
+  z-index: -1;                           /* Place behind content */
+  opacity: 0.95;                         /* Slightly transparent */
+}
+
+/* Site logo/title in header with modern styling */
+header h1 {
+  font-size: 1.75rem;                    /* Slightly smaller, more modern size */
+  margin: 0;                             /* Remove default margins */
+  font-weight: 800;                      /* Extra bold for emphasis */
+  letter-spacing: -0.03em;               /* Tighter letter spacing for modern look */
+  background: linear-gradient(90deg, white, rgba(255, 255, 255, 0.8)); /* Text gradient */
+  -webkit-background-clip: text;         /* Apply gradient to text only */
+  -webkit-text-fill-color: transparent;  /* Make text transparent to show gradient */
+  background-clip: text;                 /* Standard syntax */
+  text-fill-color: transparent;          /* Standard syntax */
+}
+
+/* Modern Navigation Links Container */
+nav {
+  display: flex;                         /* Horizontal layout for links */
+  gap: 2rem;                             /* Increased space between navigation links */
+  align-items: center;                   /* Vertically center items */
+}
+
+/* Individual navigation links with modern styling */
+nav a {
+  color: white;                          /* White text color */
+  text-decoration: none;                 /* Remove underline */
+  font-weight: 500;                      /* Medium weight for better readability */
+  font-size: 0.95rem;                    /* Slightly smaller, more elegant size */
+  position: relative;                    /* For positioning the underline effect */
+  transition: var(--transition-fast);    /* Quick, smooth transitions */
+  padding: 0.5rem 0.75rem;               /* Add padding for larger hit area */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  opacity: 0.9;                          /* Slightly transparent for subtle effect */
+}
+
+/* Modern hover effect for navigation links */
+nav a:hover {
+  opacity: 1;                            /* Full opacity on hover */
+  background: rgba(255, 255, 255, 0.1);  /* Subtle background on hover */
+  transform: translateY(-2px);           /* Slight upward movement */
+}
+
+/* Active/current page indicator */
+nav a.active {
+  background: rgba(255, 255, 255, 0.15); /* Slightly stronger background */
+  font-weight: 600;                      /* Bolder text */
+  opacity: 1;                            /* Full opacity */
+}
+
+/* Modern mobile menu button (hidden by default) */
+.mobile-menu-btn {
+  display: none;                         /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;                         /* Above the menu when open */
+}
+
+/* Responsive Design - Modern adjustments for smaller screens */
+@media (max-width: 992px) {
+  header {
+    padding: 1rem 1.5rem;                /* Reduce padding on medium screens */
+  }
+
+  nav {
+    gap: 1.5rem;                         /* Reduce gap between links */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Show mobile menu button */
+  .mobile-menu-btn {
+    display: block;                      /* Show on mobile */
+  }
+
+  /* Modern mobile navigation */
+  nav {
+    position: fixed;                     /* Fixed position overlay */
+    top: 0;                              /* Cover full screen */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent)); /* Gradient background */
+    flex-direction: column;              /* Stack links vertically */
+    justify-content: center;             /* Center links vertically */
+    gap: 2rem;                           /* Large gap between links */
+    transform: translateX(100%);         /* Start off-screen */
+    transition: transform 0.3s ease-in-out; /* Smooth slide-in animation */
+    z-index: 1000;                       /* High z-index to appear above content */
+    padding: 2rem;                       /* Add padding */
+  }
+
+  /* When mobile menu is open */
+  nav.open {
+    transform: translateX(0);            /* Slide in from right */
+  }
+
+  /* Larger text for mobile navigation */
+  nav a {
+    font-size: 1.25rem;                  /* Larger text on mobile */
+    padding: 0.75rem 1.5rem;             /* Larger touch target */
+    text-align: center;                  /* Center text */
+    width: 100%;                         /* Full width */
+    max-width: 300px;                    /* Limit maximum width */
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;                   /* Smaller logo on very small screens */
+  }
+}

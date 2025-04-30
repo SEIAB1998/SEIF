@@ -1,0 +1,414 @@
+/* Modern Buttons - With glass morphism and subtle effects */
+.btn {
+  display: inline-flex;      /* Flex layout for better alignment */
+  align-items: center;       /* Vertically center content */
+  justify-content: center;   /* Horizontally center content */
+  background: var(--primary); /* Primary color background */
+  color: white;              /* White text for contrast */
+  border: none;              /* Remove default border */
+  padding: 0.85rem 1.75rem;  /* Slightly larger padding for modern look */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  cursor: pointer;           /* Show pointer cursor on hover */
+  font-size: 0.95rem;        /* Slightly smaller text for modern look */
+  font-weight: 600;          /* Semi-bold text */
+  transition: var(--transition-fast); /* Quick, smooth transitions */
+  text-align: center;        /* Center text */
+  box-shadow: var(--shadow-sm); /* Subtle shadow for depth */
+  position: relative;        /* For pseudo-elements */
+  overflow: hidden;          /* Hide overflow for effects */
+  gap: 0.5rem;               /* Space between icon and text */
+  text-decoration: none;     /* Remove underline if used on anchor */
+  letter-spacing: 0.01em;    /* Slightly increased letter spacing */
+}
+
+/* Modern hover effect with subtle glow */
+.btn:hover {
+  background: var(--primary-dark); /* Darker color on hover */
+  transform: translateY(-3px);     /* Slight upward movement */
+  box-shadow: 0 6px 15px rgba(67, 97, 238, 0.25); /* Enhanced shadow on hover */
+}
+
+/* Modern active/pressed state */
+.btn:active {
+  transform: translateY(-1px); /* Less upward movement when pressed */
+  box-shadow: 0 3px 10px rgba(67, 97, 238, 0.2); /* Reduced shadow when pressed */
+}
+
+/* Modern focus state */
+.btn:focus {
+  outline: none;             /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3); /* Focus ring */
+}
+
+/* Modern secondary/outline button variant */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  color: var(--primary);     /* Primary color text */
+  border: 1px solid rgba(67, 97, 238, 0.3); /* Subtle border */
+  backdrop-filter: blur(4px); /* Subtle blur effect */
+  -webkit-backdrop-filter: blur(4px); /* For Safari */
+}
+
+/* Modern secondary button hover state */
+.btn-secondary:hover {
+  background: rgba(67, 97, 238, 0.1); /* Very light primary color */
+  color: var(--primary-dark); /* Darker primary color text */
+  border-color: var(--primary); /* Stronger border on hover */
+  transform: translateY(-3px); /* Slight upward movement */
+}
+
+/* Modern small button variant */
+.btn-small {
+  padding: 0.5rem 1rem;      /* Smaller padding */
+  font-size: 0.85rem;        /* Smaller text */
+  border-radius: var(--border-radius-sm); /* Smaller radius */
+  background-color: var(--tertiary); /* Light blue background */
+  margin-right: 0.5rem;      /* Space between adjacent buttons */
+  margin-top: 0.5rem;        /* Space above button */
+}
+
+/* Modern small button hover state */
+.btn-small:hover {
+  background-color: #3ab7db; /* Slightly darker tertiary color */
+  transform: translateY(-2px); /* Smaller upward movement */
+}
+
+/* Modern danger/warning button variant */
+.btn-danger {
+  background: var(--danger);  /* Danger color background */
+  color: white;              /* White text */
+}
+
+/* Modern danger button hover state */
+.btn-danger:hover {
+  background: #d63e55;       /* Slightly darker danger color */
+  box-shadow: 0 6px 15px rgba(239, 71, 111, 0.25); /* Red-tinted shadow */
+}
+
+/* Modern primary button - used for main actions */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)); /* Gradient background */
+  width: 100%;               /* Full width of container */
+  padding: 1rem 1.5rem;      /* Larger padding for prominence */
+  font-weight: 600;          /* Semi-bold text */
+  border-radius: var(--border-radius); /* Larger radius */
+  position: relative;        /* For pseudo-elements */
+  z-index: 1;                /* Ensure content is above pseudo-elements */
+}
+
+/* Modern gradient hover effect */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary-dark), var(--accent)); /* Different gradient on hover */
+  border-radius: var(--border-radius); /* Match button radius */
+  z-index: -1;               /* Place behind button content */
+  opacity: 0;                /* Start transparent */
+  transition: opacity 0.3s ease; /* Smooth fade in */
+}
+
+/* Show gradient on hover */
+.btn-primary:hover::before {
+  opacity: 1;                /* Fade in the hover gradient */
+}
+
+/* Modern hover state */
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.01); /* Slight scale and lift */
+  box-shadow: var(--shadow);  /* Enhanced shadow */
+}
+
+/* Modern icon inside button */
+.btn-primary svg,
+.btn svg {
+  transition: transform 0.2s ease; /* Smooth transition for icon movement */
+  width: 1.1em;              /* Size relative to text */
+  height: 1.1em;             /* Size relative to text */
+}
+
+/* Modern icon animation on hover */
+.btn-primary:hover svg,
+.btn:hover svg {
+  transform: translateX(4px); /* Move icon right on hover */
+}
+
+/* Modern disabled button state */
+.btn:disabled,
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  opacity: 0.6;              /* Reduce opacity */
+  cursor: not-allowed;       /* Show not-allowed cursor */
+  transform: none !important; /* Prevent hover transform */
+  box-shadow: none !important; /* Remove shadow */
+}
+
+/* Modern loading state with spinner */
+.btn.loading {
+  position: relative;        /* For positioning spinner */
+  color: transparent;        /* Hide text while loading */
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Modern Form Elements - With floating labels and subtle animations */
+/* Modern form group - container for label and input */
+.form-group {
+  margin-bottom: 1.75rem;   /* Increased space between form fields */
+  position: relative;       /* For positioning icons or validation messages */
+}
+
+/* Modern form labels with subtle animation */
+.form-group label {
+  display: block;           /* Make label full width */
+  margin-bottom: 0.6rem;    /* Space between label and input */
+  font-weight: 500;         /* Medium weight for readability */
+  color: var(--gray-dark);  /* Slightly softer than black */
+  font-size: 0.9rem;        /* Smaller than body text */
+  transition: var(--transition-fast); /* Quick transitions */
+  transform-origin: left top; /* Transform from top left */
+}
+
+/* Modern floating label variant */
+.form-group.floating-label {
+  margin-top: 1.5rem;       /* Space for floating label */
+}
+
+.form-group.floating-label label {
+  position: absolute;       /* Position over input */
+  top: 0.9rem;              /* Position vertically centered in input */
+  left: 1rem;               /* Match input padding */
+  margin: 0;                /* Remove margin */
+  pointer-events: none;     /* Allow clicks to pass through to input */
+  transition: all 0.2s ease; /* Smooth transition for floating effect */
+  color: var(--gray);       /* Lighter color initially */
+  background: transparent;  /* Transparent background */
+  padding: 0 0.25rem;       /* Small horizontal padding */
+}
+
+/* Move label up when input is focused or has content */
+.form-group.floating-label input:focus ~ label,
+.form-group.floating-label input:not(:placeholder-shown) ~ label,
+.form-group.floating-label textarea:focus ~ label,
+.form-group.floating-label textarea:not(:placeholder-shown) ~ label,
+.form-group.floating-label select:focus ~ label,
+.form-group.floating-label select:not([value=""]):not(:focus) ~ label {
+  top: -0.75rem;            /* Move above input */
+  left: 0.75rem;            /* Slight left adjustment */
+  font-size: 0.75rem;       /* Smaller font size */
+  color: var(--primary);    /* Primary color when active */
+  background: white;        /* White background to cover input border */
+  font-weight: 600;         /* Slightly bolder */
+  z-index: 1;               /* Ensure label is above input border */
+}
+
+/* Modern form input fields with subtle effects */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;              /* Full width of container */
+  padding: 0.9rem 1rem;     /* Slightly larger padding for modern look */
+  border: 1px solid var(--gray-light); /* Light border */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  font-size: 0.95rem;       /* Slightly smaller text */
+  transition: var(--transition-fast); /* Quick transitions */
+  background-color: white;  /* White background */
+  color: var(--dark);       /* Dark text */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02); /* Very subtle shadow */
+}
+
+/* Modern placeholder styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #bbb;              /* Very light gray */
+  opacity: 1;               /* Full opacity */
+}
+
+/* For floating labels, hide placeholder initially */
+.form-group.floating-label input::placeholder,
+.form-group.floating-label textarea::placeholder {
+  color: transparent;       /* Hide placeholder */
+}
+
+/* Show placeholder on focus for floating labels */
+.form-group.floating-label input:focus::placeholder,
+.form-group.floating-label textarea:focus::placeholder {
+  color: #bbb;              /* Show placeholder on focus */
+  transition: color 0.2s ease 0.1s; /* Delay to allow label to move first */
+}
+
+/* Modern focus state with glow effect */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;            /* Remove default browser outline */
+  border-color: var(--primary); /* Primary color border when focused */
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15); /* Subtle glow effect */
+}
+
+/* Modern textarea with increased height */
+.form-group textarea {
+  resize: vertical;         /* Allow vertical resizing only */
+  min-height: 140px;        /* Increased minimum height */
+  line-height: 1.6;         /* Improved line height for readability */
+}
+
+/* Modern select styling */
+.form-group select {
+  appearance: none;         /* Remove default browser styling */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;    /* Space for dropdown arrow */
+}
+
+/* Modern form validation styling */
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+  border-color: var(--danger); /* Red border for errors */
+  background-color: rgba(239, 71, 111, 0.05); /* Very light red background */
+}
+
+.form-group.error label {
+  color: var(--danger);     /* Red text for error labels */
+}
+
+/* Error message styling */
+.error-message {
+  color: var(--danger);     /* Red text */
+  font-size: 0.8rem;        /* Small text */
+  margin-top: 0.4rem;       /* Space above error message */
+  display: block;           /* Full width */
+  font-weight: 500;         /* Medium weight */
+}
+
+/* Success state styling */
+.form-group.success input,
+.form-group.success textarea,
+.form-group.success select {
+  border-color: var(--success); /* Green border for success */
+}
+
+/* Modern form container with glass morphism */
+.form-container {
+  max-width: 650px;         /* Slightly wider for modern forms */
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blur effect for glass morphism */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  margin: 3rem auto;        /* Center form with space above/below */
+  padding: 2.5rem;          /* Generous internal spacing */
+  box-shadow: var(--shadow); /* Modern shadow */
+  border-radius: var(--border-radius); /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  position: relative;       /* For decorative elements */
+  overflow: hidden;         /* Hide overflow */
+}
+
+/* Decorative background for form container */
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(67, 97, 238, 0.03), rgba(247, 37, 133, 0.03)); /* Very subtle gradient */
+  z-index: -1;              /* Behind content */
+}
+
+/* Modern form title/heading with decorative underline */
+.form-container h2 {
+  text-align: center;       /* Center the title */
+  margin-bottom: 2rem;      /* Space below title */
+  color: var(--dark);       /* Dark text */
+  position: relative;       /* For decorative elements */
+  font-weight: 700;         /* Bold text */
+  font-size: 1.75rem;       /* Larger size */
+}
+
+.form-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary)); /* Gradient underline */
+  border-radius: 3px;       /* Rounded ends */
+}
+
+/* Modern submit button with gradient and animation */
+button[type="submit"] {
+  width: 100%;              /* Full width of container */
+  padding: 1rem;            /* Generous padding */
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)); /* Gradient background */
+  color: white;             /* White text */
+  border: none;             /* No border */
+  font-size: 1rem;          /* Standard text size */
+  font-weight: 600;         /* Semi-bold text */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+  cursor: pointer;          /* Pointer cursor */
+  transition: var(--transition); /* Smooth transitions */
+  position: relative;       /* For pseudo-elements */
+  overflow: hidden;         /* Hide overflow */
+  display: flex;            /* Flex layout */
+  align-items: center;      /* Center vertically */
+  justify-content: center;  /* Center horizontally */
+  gap: 0.5rem;              /* Space between text and icon */
+  box-shadow: var(--shadow-sm); /* Subtle shadow */
+}
+
+/* Modern hover effect for submit button */
+button[type="submit"]:hover {
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: var(--shadow);  /* Enhanced shadow */
+}
+
+/* Modern active/pressed state */
+button[type="submit"]:active {
+  transform: translateY(-1px); /* Less lift when pressed */
+}
+
+/* Modern form section divider */
+.form-divider {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.form-divider::before,
+.form-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-light);
+}
+
+.form-divider::before {
+  margin-right: 1rem;
+}
+
+.form-divider::after {
+  margin-left: 1rem;
+}
